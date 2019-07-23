@@ -2,18 +2,16 @@ node{
 	
 stage('SCM Checkout'){
 	 
-   tool name: 'Maven1', type: 'maven'
-
-            
-	    git 'https://github.com/Vinodhinir19/Mav1.git'
+            git 'https://github.com/Vinodhinir19/Mav1.git'
 	
 	}
 	
 stage('Compile-Package')
-{
+def mvnHome = tool name: 'Maven1', type: 'maven'
+
 	
 		
-sh "mvn package"		
+sh "${mvnHome}/bin/mvn package"		
 
 	}
 	
